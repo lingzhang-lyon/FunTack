@@ -3,7 +3,7 @@
 	
 class MySQLDatabase {
 	
-	private $connection;
+	public $connection;
 	
 	function __construct(){
 		$this->open_connection();
@@ -23,12 +23,12 @@ class MySQLDatabase {
 		
 	public function close_connection(){
 		if(isset($this->connection)){
-			mysql_close($this->connection);
+			mysqli_close($this->connection);
 			unset($this->connection);
 		}
 	}
 	
-	public function query($sql){
+	public function query($sql){  //test index 3 success
 	 $result= mysqli_query($this->connection, $sql);
 		$this->confirm_query($result);
 		return $result;
@@ -39,13 +39,13 @@ class MySQLDatabase {
 		return $escaped_string;
 	}
 	
-	private function confirm_query($result) {
+	private function confirm_query($result) {  //test index3 success
 		if (!$result) {
-			die("Database query failed.");
+			die("Database query failed.....");
 		}
 	}
 
-	public function fetch_array($result_set){
+	public function fetch_array($result_set){ //test index3 success
 		return mysqli_fetch_array($result_set);
 	}
     

@@ -3,7 +3,7 @@ require_once("../models/database.php");
 
 if(isset($database)) echo "true ";
 else echo "false";
-
+        global $database;
 		$sql  = "SELECT * ";
 		$sql .= "FROM users ";
 		$sql .= "ORDER BY last_name ASC";
