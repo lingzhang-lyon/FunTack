@@ -10,6 +10,17 @@ class User {
 	public $password;
 	public $admin_authority;
 	
+	private static function instantiate ($record){
+		$object =new self;
+		$object->user_id =$record['user_id'];
+		$object->email_id =$record['email_id'];
+		$object->password =$record['password'];
+		$object->last_name =$record['last_name'];
+		$object->first_name =$record['first_name'];
+		$object->admin_authority =$record['admin_authority'];
+		return $object;
+	}
+	
 	public static function find_all(){
 		return self::find_by_sql("select * from users");
 	}
@@ -37,18 +48,39 @@ class User {
 		
 
 	}
+		
+	//login helper functions	
+	public static function attempt_login($email, $password) {
+		
+			$user = User::find_by_email($email);  
 	
-	private static function instantiate ($record){
-		$object =new self;
-		$object->user_id =$record['user_id'];
-		$object->email_id =$record['email_id'];
-		$object->password =$record['password'];
-		$object->last_name =$record['last_name'];
-		$object->first_name =$record['first_name'];
-		$object->admin_authority =$record['admin_authority'];
-		return $object;
-	}
+			if ($user) {
+				// found user, now check password
+				if ($password === $user["password"]) {
+					// password matches
+					return $user;
+				} else {
+					// password does not match
+					return false;
+				}
+			} else {
+				// admin not found
+				return false;
+			}
+		}
+
+
+	public static	function logged_in() {
+			return isset($_SESSION['user_id']);
+		}
+
+	public static	function confirm_logged_in() {
+			if (!logged_in()) {
+				redirect_to("login.php");
+			}
+		}
 	
+	//end login helper functions
 }
 
 	
