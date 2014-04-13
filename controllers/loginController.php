@@ -9,7 +9,7 @@ if (isset($_POST['submit'])) {
   $required_fields = array("email", "password");
   ValidationHelper::validate_presences($required_fields);
   
-  if (empty($errors)) {
+  if (empty(Session::$errors)) {
     // Attempt Login
 
 		 $email = $_POST["email"];		

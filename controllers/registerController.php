@@ -8,7 +8,7 @@ if (isset($_POST['submit'])) {
   ValidationHelper::validate_presences($required_fields);
   
   
-  if (empty($errors)) {
+  if (empty(Session::$errors)) {
     // Perform Create
 
     $firstname = $_POST["firstname"];
