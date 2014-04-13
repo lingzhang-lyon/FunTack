@@ -85,6 +85,24 @@ class User {
 		$result_set =$database->query($sql);
 		return $result_set;		
 	}
+	
+	public static function update_user($userid, $firstname, $lastname, $email,$password){
+		global $database;
+		$safe_email = $database->escape_value($email);
+		$safe_firstname = $database->escape_value($firstname);
+		$safe_lastname= $database->escape_value($lastname);
+		$safe_password = $database->escape_value($password);
+	    $sql  = "UPDATE users SET ";
+	    $sql .= "first_name = '{$safe_firstname}', ";
+		$sql .= "last_name = '{$safe_lastname}', ";
+	    $sql .= "email_id = '{$safe_email}', ";
+	    $sql .= "password = '{$safe_password}' ";
+	    $sql .= "WHERE user_id = {$userid} ";
+	    $sql .= "LIMIT 1";
+	    $result = $database->query($sql);
+		return $result;	
+	}
+	
 }
 
 	

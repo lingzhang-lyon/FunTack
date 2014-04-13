@@ -1,4 +1,3 @@
-<?php $layout_context = "public"; ?>
 <?php include("layouts/header.php"); ?>	
 
 

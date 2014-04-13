@@ -22,6 +22,7 @@ if (isset($_POST['submit'])) {
 			// Mark user as logged in
 			$_SESSION["user_id"] = $found_user["user_id"];
 			$_SESSION["email_id"] = $found_user["email_id"];
+			$_SESSION["first_name"] = $found_user["first_name"];
 			if ($found_user["admin_authority"] == 1 ) BasicHelper::redirect_to("admin_dashboard.php");
 			else BasicHelper::redirect_to("user_dashboard.php");
     } else {
