@@ -27,7 +27,7 @@ class User {
 	
 	public static function find_by_id($id=0) {
 		global $database;
-		$result_set = self::find_by_sql("select * from users where user_id={$id} limit 1");
+		$result_set = static::find_by_sql("select * from users where user_id={$id} limit 1");
 		$found = $database->fetch_array($result_set);
 		return $found;
 	}
@@ -35,7 +35,7 @@ class User {
 	public static function find_by_email($email="") {  //test sucess
 		global $database;
 		$safe_email = $database->escape_value($email);
-		$result_set = self::find_by_sql("select * from users where email_id = '{$safe_email}' limit 1");
+		$result_set = static::find_by_sql("select * from users where email_id = '{$safe_email}' limit 1");
 		$found = $database->fetch_array($result_set);
 		return $found;
 		
@@ -50,9 +50,9 @@ class User {
 	}
 		
 	//login helper functions	
-	public static function attempt_login($email, $password) {
+	public static function attempt_login($email="", $password="") {
 		
-			$user = User::find_by_email($email);  
+			$user = static::find_by_email($email);  
 	
 			if ($user) {
 				// found user, now check password
@@ -68,19 +68,23 @@ class User {
 				return false;
 			}
 		}
-
-
-	public static	function logged_in() {
-			return isset($_SESSION['user_id']);
-		}
-
-	public static	function confirm_logged_in() {
-			if (!logged_in()) {
-				redirect_to("login.php");
-			}
-		}
 	
 	//end login helper functions
+	
+	public static function insert_user($firstname, $lastname, $email,$password){
+		global $database;
+		$safe_email = $database->escape_value($email);
+		$safe_firstname = $database->escape_value($firstname);
+		$safe_lastname= $database->escape_value($lastname);
+		$safe_password = $database->escape_value($password);
+	    $sql  = "INSERT INTO users (";
+	    $sql  .= "  first_name, last_name, email_id, password ";
+	    $sql  .= ") VALUES (";
+	    $sql  .= "  '{$safe_firstname}', '{$safe_lastname}','{$safe_email}','{$safe_password}' ";
+	    $sql  .= ")";
+		$result_set =$database->query($sql);
+		return $result_set;		
+	}
 }
 
 	

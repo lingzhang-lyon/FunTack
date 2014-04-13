@@ -1,8 +1,4 @@
-<?php require_once("../models/session.php"); ?>
-<?php require_once("../models/database.php"); ?>
-<?php require_once("../models/user.php"); ?>
-<?php require_once("../helper/basicHelper.php"); ?>
-<?php require_once("../helper/validationHelper.php"); ?>
+<?php require_once("../helper/initializeHelper.php"); ?>
 <?php
 $email = "";
 
@@ -11,7 +7,7 @@ if (isset($_POST['submit'])) {
   
   // validations
   $required_fields = array("email", "password");
-  validationHelper::validate_presences($required_fields);
+  ValidationHelper::validate_presences($required_fields);
   
   if (empty($errors)) {
     // Attempt Login
@@ -26,8 +22,8 @@ if (isset($_POST['submit'])) {
 			// Mark user as logged in
 			$_SESSION["user_id"] = $found_user["user_id"];
 			$_SESSION["email_id"] = $found_user["email_id"];
-			if ($found_user["admin_authority"] == 1 ) basicHelper::redirect_to("admin_dashboard.php");
-			else basicHelper::redirect_to("user_dashboard.php");
+			if ($found_user["admin_authority"] == 1 ) BasicHelper::redirect_to("admin_dashboard.php");
+			else BasicHelper::redirect_to("user_dashboard.php");
     } else {
       // Failure
       $_SESSION["message"] = "Email/password not found.";

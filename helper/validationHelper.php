@@ -1,8 +1,8 @@
 <?php
 
-class validationHelper {
+class ValidationHelper {
 	
-	public static $errors = array();
+	//public static $errors = array();
 
 	public static function fieldname_as_text($fieldname) {
 	  $fieldname = str_replace("_", " ", $fieldname);
@@ -19,11 +19,11 @@ class validationHelper {
 	}
 
 	public static function validate_presences($required_fields) {
-	  global $errors;
+	 
 	  foreach($required_fields as $field) {
 	    $value = trim($_POST[$field]);
-	  	if (!validationHelper::has_presence($value)) {
-	  		$errors[$field] = validationHelper::fieldname_as_text($field) . " can't be blank";
+	  	if (!static::has_presence($value)) {
+	  		Session::$errors[$field] = static::fieldname_as_text($field) . " can't be blank";
 	  	}
 	  }
 	}

@@ -52,6 +52,7 @@ class MySQLDatabase {
 	public function num_rows($result_set){
 		return mysqli_num_rows($result_set);
 	}
+	
 
 
 }

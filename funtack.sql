@@ -10,7 +10,7 @@ CREATE TABLE users (
 user_id int Not NULL AUTO_INCREMENT,
 first_name varchar(100) NOT NULL,
 last_name varchar(100) NOT NULL,
-email_id varchar(100) NOT NULL,
+email_id varchar(100) NOT NULL, -- may need to set uique later
 password MEDIUMTEXT not NULL,
 admin_authority bit default 0, 
 PRIMARY KEY (user_id)

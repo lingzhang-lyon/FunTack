@@ -6,8 +6,8 @@
 	<a href="index.php">&laquo; Main Page</a><br />
   </div>
   <div id="page">
-    <?php echo message(); ?>
-    <?php echo basicHelper::form_errors($errors); ?>
+    <?php echo Session::message(); ?>
+    <?php echo Session::form_errors(Session::$errors); ?>
     
     <h2>Login</h2>
     <form action="login.php" method="post">

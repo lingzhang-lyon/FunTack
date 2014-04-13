@@ -6,7 +6,7 @@
    <ul>
 		<li><a href="login.php">Login</a></li>
 
-		<li><a href="user_register.php">Registration</a></li>
+		<li><a href="register.php">Registration</a></li>
 
    <ul>	
 
