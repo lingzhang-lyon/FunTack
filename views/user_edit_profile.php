@@ -1,4 +1,5 @@
-<?php require_once("../controllers/userEditProfileController.php"); ?>
+<?php require_once("../controllers/userEditProfileController.php"); ?>  
+<!-- The userEditProfileController will set session and the array varible $user -->
 <?php include("layouts/header.php"); ?>	
 <div id="mainmenu">
 	<ul><li>

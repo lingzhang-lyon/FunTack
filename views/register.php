@@ -1,4 +1,5 @@
 <?php include("../controllers/registerController.php"); ?>
+<!-- The registerController will set session -->
 <?php include("layouts/header.php"); ?>
 <div id="main">
   <div id="navigation">

@@ -1,4 +1,5 @@
 <?php include("../controllers/loginController.php"); ?>
+<!-- The loginController will set session and $email variable-->
 <?php include("layouts/header.php"); ?>
 <div id="main">
   <div id="navigation">

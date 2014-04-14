@@ -1,4 +1,5 @@
 <?php require_once("../controllers/userDashboardController.php"); ?>
+<!-- The userDashboardController will set session and the array varible $user -->
 <?php include("layouts/header.php"); ?>	
 
 <div id="content">
