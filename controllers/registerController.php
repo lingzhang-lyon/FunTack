@@ -22,7 +22,7 @@ if (isset($_POST['submit'])) {
       // Success
 	  $user=User::find_by_email($email);
       $_SESSION["email_id"] = $user->email_id;
-      BasicHelper::redirect_to("user_dashboard.php");
+      BasicHelper::redirect_to("login.php");
     } else {
       // Failure
       $_SESSION["message"] = "User account creation failed.";
