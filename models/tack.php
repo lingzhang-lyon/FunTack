@@ -23,7 +23,7 @@ class Tack {
 	
 	
 	public static function find_by_sql($sql=""){ // test sucess
-		//will return tack objects array
+		//will return objects array
 		global $database;
 		$result_set =$database->query($sql);
 		$object_array = array();
@@ -52,6 +52,20 @@ class Tack {
 		return $result_array ;	
 		
 	}
+	
+	public static function find_tacks_by_board_id($boardid=0) {  //test sucess
+		//will return tack objects array
+		global $database;
+		$result_set =$database->query("select tack_id from board_tacks where board_id = {$boardid} ");
+		$object_array = array();
+		while($row = $database->fetch_array($result_set)){		
+			$object_array[] = static::find_by_id ($row['tack_id']);
+		}
+		return $object_array;	
+				
+	}
+	
+	
 	
 
 	

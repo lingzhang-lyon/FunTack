@@ -26,7 +26,7 @@ class User {
 		return self::find_by_sql("select * from users");
 	}
 	
-	public static function find_by_id($id=0) {
+	public static function find_by_id($id=0) { //test sucess
 		//will return user object
 		global $database;
 		$result_array = static::find_by_sql("select * from users where user_id={$id} limit 1");

@@ -59,6 +59,7 @@ PRIMARY KEY (board_id)
 insert into boards (category_id, user_id, name,description,created_date, privacy)
 values (1, 1, 'MyTech', 'my technology collection','2014-04-09 00:00:01', 0);
 
+--this table is neccessary because tack may belong to diff boards
 DROP TABLE IF EXISTS board_tacks;
 CREATE TABLE board_tacks (
 id int NOT NULL AUTO_INCREMENT,
@@ -70,4 +71,5 @@ FOREIGN KEY (tack_id) REFERENCES tacks(tack_id)
 );
 
 insert into board_tacks (board_id, tack_id) values (1,1);
+insert into board_tacks (board_id, tack_id) values (1,2),(1,3),(1,4);
 	
