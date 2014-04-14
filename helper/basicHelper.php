@@ -7,11 +7,6 @@ class BasicHelper {
 	  exit;
 	}
 	
-
-
-
 }
-
-
 
 ?>

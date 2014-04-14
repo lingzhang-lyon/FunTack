@@ -1,5 +1,5 @@
 <?php require_once("../controllers/userEditProfileController.php"); ?>  
-<!-- The userEditProfileController will set session and the array varible $user -->
+<!-- The userEditProfileController will set session and the object $user -->
 <?php include("layouts/header.php"); ?>	
 <div id="mainmenu">
 	<ul><li>
@@ -12,19 +12,19 @@
     <?php echo Session::message(); ?>
     <?php echo Session::form_errors(Session::$errors); ?>
     
-    <h2>Edit Your Profile: <?php echo htmlentities($user["first_name"]); ?></h2>
+    <h2>Edit Your Profile: <?php echo htmlentities($user->first_name); ?></h2>
     <form action="user_edit_profile.php?id=<?php echo urlencode($_SESSION["user_id"]); ?>" method="post">
 
 		<p>First Name<br></br>
-		<input type="text" name="firstname" value="<?php echo htmlentities($user["first_name"]); ?>" />
+		<input type="text" name="firstname" value="<?php echo htmlentities($user->first_name); ?>" />
 		</p>
 		
 		<p>Last Name<br></br>
-		<input type="text" name="lastname" value="<?php echo htmlentities($user["last_name"]); ?>" />
+		<input type="text" name="lastname" value="<?php echo htmlentities($user->last_name); ?>" />
 		</p>
 
 		<p>Email<br></br>
-		<input type="text" name="email" value="<?php echo htmlentities($user["email_id"]); ?>" />
+		<input type="text" name="email" value="<?php echo htmlentities($user->email_id); ?>" />
 		</p>
 
 		<p>Password<br></br>

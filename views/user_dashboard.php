@@ -1,5 +1,5 @@
 <?php require_once("../controllers/userDashboardController.php"); ?>
-<!-- The userDashboardController will set session and array variable $user,  tack objects array $tacks -->
+<!-- The userDashboardController will set session and object $user,  tack objects array $tacks -->
 <?php include("layouts/header.php"); ?>	
 
 <div id="mainmenu">

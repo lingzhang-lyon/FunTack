@@ -22,31 +22,36 @@ class User {
 	}
 	
 	public static function find_all(){
+		//will return user objects array
 		return self::find_by_sql("select * from users");
 	}
 	
 	public static function find_by_id($id=0) {
+		//will return user object
 		global $database;
-		$result_set = static::find_by_sql("select * from users where user_id={$id} limit 1");
-		$found = $database->fetch_array($result_set);
-		return $found;
+		$result_array = static::find_by_sql("select * from users where user_id={$id} limit 1");
+		return $result_array[0];
 	}
 	
 	public static function find_by_email($email="") {  //test sucess
+		//will return user object
 		global $database;
 		$safe_email = $database->escape_value($email);
-		$result_set = static::find_by_sql("select * from users where email_id = '{$safe_email}' limit 1");
-		$found = $database->fetch_array($result_set);
-		return $found;
+		$result_array = static::find_by_sql("select * from users where email_id = '{$safe_email}' limit 1");
+		return $result_array[0];
 		
 	}
 		
 	public static function find_by_sql($sql=""){  //test success
+		//will return user objects array
 		global $database;
 		$result_set =$database->query($sql);
-		return $result_set;
+		$object_array = array();
+		while($row = $database->fetch_array($result_set)){
+			$object_array[] = static::instantiate ($row);
+		}
+		return $object_array;
 		
-
 	}
 		
 	//login helper functions	
@@ -56,7 +61,7 @@ class User {
 	
 			if ($user) {
 				// found user, now check password
-				if ($password === $user["password"]) {
+				if ($password === $user->password) {
 					// password matches
 					return $user;
 				} else {

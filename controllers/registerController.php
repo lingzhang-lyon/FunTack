@@ -21,7 +21,7 @@ if (isset($_POST['submit'])) {
     if ($result) {
       // Success
 	  $user=User::find_by_email($email);
-      $_SESSION["email_id"] = $user["email_id"];
+      $_SESSION["email_id"] = $user->email_id;
       BasicHelper::redirect_to("user_dashboard.php");
     } else {
       // Failure
