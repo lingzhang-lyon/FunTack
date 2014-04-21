@@ -26,11 +26,14 @@ class Tack {
 		//will return objects array
 		global $database;
 		$result_set =$database->query($sql);
-		$object_array = array();
-		while($row = $database->fetch_array($result_set)){
-			$object_array[] = static::instantiate ($row);
+		if($result_set){
+			$object_array = array();
+			while($row = $database->fetch_array($result_set)){
+				$object_array[] = static::instantiate ($row);
+			}
+			return $object_array;	
 		}
-		return $object_array;		
+		else return NULL;	
 	}
 	
 	public static function find_all(){
@@ -57,11 +60,30 @@ class Tack {
 		//will return tack objects array
 		global $database;
 		$result_set =$database->query("select tack_id from board_tacks where board_id = {$boardid} ");
-		$object_array = array();
-		while($row = $database->fetch_array($result_set)){		
-			$object_array[] = static::find_by_id ($row['tack_id']);
+		if($result_set){
+			$object_array = array();
+			while($row = $database->fetch_array($result_set)){		
+				$object_array[] = static::find_by_id ($row['tack_id']);
+			}
+			return $object_array;	
 		}
-		return $object_array;	
+		else return NULL;
+				
+	}
+	
+	public static function find_latest_tacks_by_board_id($num=0, $boardid=0) {  
+		//will return tack objects array with latest $num tacks
+		global $database;
+		$sql="select id, tack_id from board_tacks where board_id = {$boardid} Order by id limit " . $num ." ";
+		$result_set =$database->query($sql);
+		if($result_set){
+			$object_array = array();
+			while($row = $database->fetch_array($result_set)){		
+				$object_array[] = static::find_by_id ($row['tack_id']);
+			}
+			return $object_array;
+		}
+		else return NULL;	
 				
 	}
 	

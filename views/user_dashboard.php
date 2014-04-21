@@ -1,23 +1,7 @@
 <?php require_once("../controllers/userDashboardController.php"); ?>
 <!-- The userDashboardController will set session and object $user,  tack objects array $tacks -->
 <?php include("layouts/header.php"); ?>	
-
-<div id="mainmenu">
-   <ul>
-		<li> <a href="user_profile.php">
-	          <?php echo $_SESSION["first_name"]; ?> </a></li>
-		<li><a href="user_dashboard.php">Home</a></li>	  
-		<li><a href="user_search.php">Search</a></li>
-		<li><a href="user_boards.php">MyBoards</a></li>
-		<li><a href="user_followed_boards.php">Followed Boards</a></li>
-		<li><a href="user_favorite_tacks.php">Favorite Tacks</a></li>
-
-		<li><a href="../controllers/logoutController.php">Log Out</a></li>
-
-   <ul>	
-
-		
-</div>	
+<?php include("layouts/menu.php"); ?>	
 
 <div id="content">
   <?php echo Session::message(); ?>

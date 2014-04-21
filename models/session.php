@@ -54,7 +54,7 @@ class Session {
 
 	public static function confirm_logged_in() {
 			if (!static::logged_in()) {
-				redirect_to("login.php");
+				BasicHelper::redirect_to("login.php");
 			}
 		}
 			

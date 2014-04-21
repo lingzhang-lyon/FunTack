@@ -29,11 +29,14 @@ class Board {
 		//will return objects array
 		global $database;
 		$result_set =$database->query($sql);
-		$object_array = array();
-		while($row = $database->fetch_array($result_set)){
-			$object_array[] = static::instantiate ($row);
+		if ($result_set){
+			$object_array = array();
+			while($row = $database->fetch_array($result_set)){
+				$object_array[] = static::instantiate ($row);
+			}
+			return $object_array;
 		}
-		return $object_array;		
+		else return NULL;		
 	}
 	
 	public static function find_all(){
@@ -54,6 +57,21 @@ class Board {
 		global $database;
 		$result_array = static::find_by_sql("select * from boards where user_id = {$userid}");
 		return $result_array ;	
+		
+	}
+	
+	public static function find_followed_boards_by_user_id($userid=0) {  //test sucess
+		//will return board objects array
+		global $database;
+		$result_set= $database->query("select * from user_follow_boards where user_id = {$userid}");
+		if($result_set){
+			$object_array = array();
+			while($row = $database->fetch_array($result_set)){		
+				$object_array[] = static::find_by_id ($row['board_id']);
+			}
+			return $object_array;
+		}
+		else return NULL;	
 		
 	}
 	

@@ -30,7 +30,12 @@ class MySQLDatabase {
 	
 	public function query($sql){  //test index 3 success
 	 $result= mysqli_query($this->connection, $sql);
-		$this->confirm_query($result);
+		return $result;
+	}
+	
+	public function query_with_confirm($sql){  //test index 3 success
+	 $result= mysqli_query($this->connection, $sql);
+	 $this->confirm_query($result); //for debug
 		return $result;
 	}
 	

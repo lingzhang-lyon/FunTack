@@ -1,3 +1,5 @@
+<?php require_once("../helper/initializeHelper.php"); ?>
+<?php if (Session::logged_in()) BasicHelper::redirect_to("user_dashboard.php");?>
 <?php include("layouts/header.php"); ?>	
 
 

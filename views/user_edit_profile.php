@@ -1,11 +1,7 @@
 <?php require_once("../controllers/userEditProfileController.php"); ?>  
 <!-- The userEditProfileController will set session and the object $user -->
 <?php include("layouts/header.php"); ?>	
-<div id="mainmenu">
-	<ul><li>
-   <a href="user_dashboard.php">Back To DashBoard</a>
-   </li></ul>
-</div>
+<?php include("layouts/menu.php"); ?>
 
 <div id="content">
 

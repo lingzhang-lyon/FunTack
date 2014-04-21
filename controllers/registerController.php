@@ -1,5 +1,6 @@
 <?php require_once("../helper/initializeHelper.php"); ?>
 <?php
+if (Session::logged_in()) BasicHelper::redirect_to("user_dashboard.php");
 if (isset($_POST['submit'])) {
   // Process the form
   

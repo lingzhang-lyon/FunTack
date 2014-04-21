@@ -18,8 +18,10 @@ PRIMARY KEY (user_id)
 );
 
 
-insert into users (first_name,last_name,email_id,password, admin_authority) 
-values('ling', 'zhang','ling@gmail.com','1234', 0);
+insert into users (first_name,last_name,email_id,password, admin_authority) values
+('ling', 'zhang','ling@gmail.com','1234', 0),
+('lingran', 'liu','lingran@gmail.com','1234', 0);
+
 
 DROP TABLE IF EXISTS tacks;
 CREATE TABLE tacks (
@@ -59,7 +61,7 @@ PRIMARY KEY (board_id)
 insert into boards (category_id, user_id, name,description,created_date, privacy)
 values (1, 1, 'MyTech', 'my technology collection','2014-04-09 00:00:01', 0);
 
---this table is neccessary because tack may belong to diff boards
+-- this table is neccessary because tack may belong to diff boards
 DROP TABLE IF EXISTS board_tacks;
 CREATE TABLE board_tacks (
 id int NOT NULL AUTO_INCREMENT,
@@ -72,4 +74,19 @@ FOREIGN KEY (tack_id) REFERENCES tacks(tack_id)
 
 insert into board_tacks (board_id, tack_id) values (1,1);
 insert into board_tacks (board_id, tack_id) values (1,2),(1,3),(1,4);
+	
+
+DROP TABLE IF EXISTS user_follow_boards;
+CREATE TABLE user_follow_boards (
+id int NOT NULL AUTO_INCREMENT,
+user_id int NOT NULL,
+board_id int NOT NULL,
+PRIMARY KEY (id),
+FOREIGN KEY (board_id) REFERENCES boards(board_id),
+FOREIGN KEY (user_id) REFERENCES users(user_id)
+);
+
+insert into user_follow_boards (user_id, board_id) values (2,1);
+
+
 	
