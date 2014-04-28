@@ -5,7 +5,7 @@ $board = Board::find_by_id($_GET["id"]);
 $tacks = Tack::find_tacks_by_board_id($_GET["id"]);
 ?>
 <?php include("layouts/header.php"); ?>	
-<?php include("layouts/menu.php"); ?>
+<?php $activeMenu = "user_myboards"; include("layouts/menu.php"); ?>
 
 <div id="content">
   <?php echo Session::message(); ?>

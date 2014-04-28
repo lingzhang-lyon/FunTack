@@ -1,7 +1,7 @@
 <?php require_once("../controllers/userMyBoardsController.php"); ?>
 <!-- The userMyBoardsController will set session and object $user,  board objects array $boards, boardid with tacks objects array $boards_tacks -->
 <?php include("layouts/header.php"); ?>	
-<?php include("layouts/menu.php"); ?>	
+<?php $activeMenu = "user_myboards"; include("layouts/menu.php"); ?>	
 	
 <div id="content">
   <?php echo Session::message(); ?>

@@ -37,8 +37,9 @@ FOREIGN KEY (user_id) REFERENCES users(user_id)
 PRIMARY KEY (tack_id)
 );
 
-insert into tacks (user_id, website_url, picture_url, description ) 
-values( 1, 'http://1hdwallpapers.com/future_technology-wallpaper.html', 'http://1hdwallpapers.com/wallpapers/future_technology.jpg', 'A great wall paper website'),
+insert into tacks (user_id, website_url, picture_url, description ) values
+(1, 'http://1hdwallpapers.com/future_technology-wallpaper.html', 
+	'http://1hdwallpapers.com/wallpapers/future_technology.jpg', 'A great wall paper website'),
 (1,'http://www.technews24h.com/2013/10/where-is-technology-heading.html',
 	'http://2.bp.blogspot.com/-iLHXJHBe1J0/UlvTybIPo7I/AAAAAAAASXo/yEgUK_8xxJY/s1600/Where+Is+Technology+Heading.jpg', 'Where is technology heading?'),
 (1, 'http://www.cautaro.com/how-to-pick-right-bedroom-wardrobe-design.html',
@@ -66,8 +67,9 @@ FOREIGN KEY (user_id) REFERENCES users (user_id)
 PRIMARY KEY (board_id)
 );
 
-insert into boards (category_id, user_id, name,description,created_date, privacy)
-values (1, 1, 'MyTech', 'my technology collection','2014-04-09 00:00:01', 0);
+insert into boards (category_id, user_id, name,description,created_date, privacy) values
+ (4, 1, 'MyTech', 'my technology collection','2014-04-09 00:00:01', 0),
+ (1, 2, 'Beauty', 'my beauty collection','2014-04-09 00:00:01', 0);
 
 -- this table is neccessary because tack may belong to diff boards
 DROP TABLE IF EXISTS board_tacks;
@@ -82,6 +84,7 @@ FOREIGN KEY (tack_id) REFERENCES tacks(tack_id)
 
 insert into board_tacks (board_id, tack_id) values (1,1);
 insert into board_tacks (board_id, tack_id) values (1,2),(1,3),(1,4);
+insert into board_tacks (board_id, tack_id) values (2,5),(2,6);	
 	
 
 DROP TABLE IF EXISTS user_follow_boards;
@@ -94,7 +97,7 @@ FOREIGN KEY (board_id) REFERENCES boards(board_id),
 FOREIGN KEY (user_id) REFERENCES users(user_id)
 );
 
-insert into user_follow_boards (user_id, board_id) values (2,1);
+insert into user_follow_boards (user_id, board_id) values (2,1), (1,2);
 
 DROP TABLE IF EXISTS categories;
 CREATE TABLE categories (

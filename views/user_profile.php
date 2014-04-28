@@ -1,7 +1,7 @@
 <?php require_once("../controllers/userDashboardController.php"); ?>
 <!-- The userDashboardController will set session and the object $user -->
 <?php include("layouts/header.php"); ?>
-<?php include("layouts/menu.php"); ?>
+<?php $activeMenu = "user_profile"; include("layouts/menu.php"); ?>
 
 <div id="content">
     <?php echo Session::message(); ?>
