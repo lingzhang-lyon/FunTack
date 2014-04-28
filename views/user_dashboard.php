@@ -11,7 +11,7 @@
 	<br />
 	
 	<?php foreach($tacks as $tack){ ?>
-	<img src= <?php echo $tack->url;?> width=200px height=200px />
+	<img src= <?php echo $tack->picture_url;?> width=200px height=200px />
 	<?php } ?>
 	
 	<!-- for test  -test sucess -->

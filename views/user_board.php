@@ -13,12 +13,12 @@ $tacks = Tack::find_tacks_by_board_id($_GET["id"]);
   
   <?php if($board->user_id == $_SESSION["user_id"]) { ?> 
   <!-- if this board own by the user, then allow to create new tack -->
-  <a href="user_create_tack.php"> + Create New Tack In This Board </a><br></br>
+  <a href="user_create_tack.php?boardid=<?php echo urlencode($board->board_id);?> "> + Create New Tack In This Board </a><br></br>
   <?php } ?>
   
   <h3><?php echo $board->name; ?></h3>
   <?php foreach($tacks as $tack){ ?>
-   <img src= <?php echo $tack->url;?> width=200px height=200px /> 
+   <img src= <?php echo $tack->picture_url;?> width=200px height=200px /> 
   <?php } ?>
   
 </div>

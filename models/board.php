@@ -75,4 +75,19 @@ class Board {
 		
 	}
 	
+	public static function create_board($userid=0,$boardname="",$categoryid=0,$description="",$boardtype=0) {
+		global $database;
+		$safe_boardname = $database->escape_value($boardname);
+		$safe_description= $database->escape_value($description);
+		$time=$database->escape_value(date("Y-m-d"));
+	    $sql  = "INSERT INTO boards (";
+	    $sql  .= "  user_id, name, category_id, description,created_date ";
+	    $sql  .= ") VALUES (";
+	    $sql  .= "  {$userid}, '{$safe_boardname}', {$categoryid},'{$safe_description}','{$time}' ";
+	    $sql  .= ")";
+		$result_set =$database->query($sql);
+		return $result_set;	
+		
+	}
+	
 }

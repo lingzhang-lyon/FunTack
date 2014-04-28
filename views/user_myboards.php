@@ -24,10 +24,12 @@
 		$ownboardid=$board->board_id;
 		$owntacks=$boardid_tacks[$ownboardid];
 		foreach($owntacks as $owntack){ ?>
-	    <img src= <?php echo $owntack->url;?> width=200px height=200px /> 
-	   <?php } 
-	}
-	?>
+	    <img src= <?php echo $owntack->picture_url;?> width=200px height=200px /> 
+	   <?php } ?>
+	   <br> 
+	<?php 
+     } ?>
+	
 	
 
 	

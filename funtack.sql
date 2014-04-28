@@ -26,9 +26,10 @@ insert into users (first_name,last_name,email_id,password, admin_authority) valu
 DROP TABLE IF EXISTS tacks;
 CREATE TABLE tacks (
 tack_id int NOT NULL AUTO_INCREMENT,
-user_id int NOT NULL,
-path varchar(255) ,
-url varchar(255) ,
+user_id int NOT NULL,  -- tack creator,  but tacks could be take to other's  board. -- retack 
+website_url varchar(255) ,
+picture_url varchar(255) ,
+description varchar(255),
 no_of_retacks int,
 no_of_favorites int,
 FOREIGN KEY (user_id) REFERENCES users(user_id)
@@ -36,11 +37,18 @@ FOREIGN KEY (user_id) REFERENCES users(user_id)
 PRIMARY KEY (tack_id)
 );
 
-insert into tacks (user_id, url ) 
-values( 1, 'http://1hdwallpapers.com/wallpapers/future_technology.jpg'),
-(1,'http://rack.2.mshcdn.com/media/ZgkyMDE0LzAzLzE4LzY2L2NibnNwcmRzaHQxLjdhODAyLmpwZwpwCXRodW1iCTEyMDB4OTYwMD4/8a821d72/1d1/cbnsprdsht1.jpg'),
-(1, 'http://www.designboom.com/wp-content/uploads/2013/10/three-dogs-wild-bounty-flagship-store-designboom02.jpg'),
-(1, 'http://media-cache-ak0.pinimg.com/originals/13/c4/37/13c43740d9281db040945bb709d4ed5c.jpg');
+insert into tacks (user_id, website_url, picture_url, description ) 
+values( 1, 'http://1hdwallpapers.com/future_technology-wallpaper.html', 'http://1hdwallpapers.com/wallpapers/future_technology.jpg', 'A great wall paper website'),
+(1,'http://www.technews24h.com/2013/10/where-is-technology-heading.html',
+	'http://2.bp.blogspot.com/-iLHXJHBe1J0/UlvTybIPo7I/AAAAAAAASXo/yEgUK_8xxJY/s1600/Where+Is+Technology+Heading.jpg', 'Where is technology heading?'),
+(1, 'http://www.cautaro.com/how-to-pick-right-bedroom-wardrobe-design.html',
+	'http://www.cautaro.com/wp-content/uploads/2014/03/modern-bedroom-design.jpg','how to pick right bedroom design'),
+(1, 'https://scifiinterfaces.wordpress.com/tag/inhumantechnology/',
+	'https://scifiinterfaces.files.wordpress.com/2012/11/prometheus-223.png','Alien VPs'),
+(2, 'http://jeffbeckley.wordpress.com/tag/sleep-texting/', 
+	'http://jeffbeckley.files.wordpress.com/2014/04/social_media-technology-wallpapers.jpg','Sleep Texting'),
+(2, 'http://www.voila60sloan.com/beauty-blog/',
+	'http://www.voila60sloan.com/wp-content/uploads/2014/01/beauty1.jpg','Beauty blog');
 
 
 DROP TABLE IF EXISTS boards;
@@ -52,7 +60,7 @@ name varchar(100) NOT NULL,
 description varchar(255),
 created_date timestamp NOT NULL,
 no_of_tacks int,
-privacy bit default 0,
+privacy bit default 0,  -- 0, public, 1, private
 FOREIGN KEY (user_id) REFERENCES users (user_id)
     ON DELETE CASCADE ON UPDATE CASCADE,
 PRIMARY KEY (board_id)
@@ -88,5 +96,12 @@ FOREIGN KEY (user_id) REFERENCES users(user_id)
 
 insert into user_follow_boards (user_id, board_id) values (2,1);
 
+DROP TABLE IF EXISTS categories;
+CREATE TABLE categories (
+id int NOT NULL AUTO_INCREMENT,
+name varchar(100) NOT NULL,
+PRIMARY KEY (id)
+);
 
+insert into categories (name) values ("Beauty"), ("Food"),("Pet"), ("Technology"), ("Sports"),( "Travel"), ("Education"), ("Plants");
 	
