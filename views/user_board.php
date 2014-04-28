@@ -17,6 +17,11 @@ $tacks = Tack::find_tacks_by_board_id($_GET["id"]);
   <?php } ?>
   
   <h3><?php echo $board->name; ?></h3>
+    Category: 
+	<?php 
+	$category = Category::find_by_id($board->category_id); 
+	echo  htmlentities($category->category_name); 
+	?><br>
   <?php foreach($tacks as $tack){ ?>
    <img src= <?php echo $tack->picture_url;?> width=200px height=200px /> 
   <?php } ?>

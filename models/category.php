@@ -18,11 +18,20 @@ class Category {
 		global $database;
 		$safe_categoryname = $database->escape_value($categoryname);
 		$result_set = $database->query("select * from categories where name = '{$safe_categoryname}' limit 1");
-		$object = $database->fetch_array($result_set);
+		$row = $database->fetch_array($result_set);
+		$object =static::instantiate ($row);		
 		return $object;
 	}
 	
-	public static function find_all(){
+	public static function find_by_id($categoryid){ //not success
+		global $database;
+		$result_set = $database->query("select * from categories where id = {$categoryid} limit 1");
+		$row = $database->fetch_array($result_set);
+		$object =static::instantiate ($row);
+		return $object;
+	}
+	
+	public static function find_all(){ //test success
 		global $database;
 		$result_set = $database->query("select * from categories");
 		$object_array = array();

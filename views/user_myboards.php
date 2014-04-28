@@ -18,8 +18,11 @@
 	<?php
 	foreach($boards as $board){ ?>
 		<a href="user_board.php?id=<?php echo urlencode($board->board_id);?> ">
-		<?php echo $board->name; ?></a>
-		<br>
+		<?php echo $board->name; ?></a> 
+		Category: <?php 
+		    $category = Category::find_by_id($board->category_id); 
+			echo  htmlentities($category->category_name); ?>
+		<br></br>
 		<?php 
 		$ownboardid=$board->board_id;
 		$owntacks=$boardid_tacks[$ownboardid];
