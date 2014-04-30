@@ -1,7 +1,7 @@
 <?php require_once("../controllers/userCreateBoardController.php"); ?>  
 <!-- The userCreateBoardController will set session and the object $user, object array $categories -->
 <?php include("layouts/header.php"); ?>	
-<?php include("layouts/menu.php"); ?>
+<?php $activeMenu = "user_myboards"; include("layouts/menu.php"); ?>
 
 <div id="content">
 
@@ -40,6 +40,7 @@
 
 
 		<input type="submit" name="submit" value="Create"/>
+		<a href="user_myboards.php">Cancel</a>
     </form>
 
 </div>

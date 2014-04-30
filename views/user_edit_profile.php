@@ -28,6 +28,7 @@
 		</p>
 
 		<input type="submit" name="submit" value="Edit"/>
+		<a href="user_profile.php">Cancel</a>
     </form>
 
 </div>

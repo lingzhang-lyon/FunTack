@@ -24,7 +24,7 @@ if (isset($_POST['submit'])) {
     if ($result) {
       // Success
       $_SESSION["message"] = "Tack created.";
-      BasicHelper::redirect_to("user_board.php?id=<?php echo urlencode($board->board_id);?>");
+      BasicHelper::redirect_to("user_board.php?id=".$board->board_id);
     } else {
       // Failure
       $_SESSION["message"] = "Tack creation failed.";

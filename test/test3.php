@@ -1,0 +1,1 @@
+alt="Smiley face"

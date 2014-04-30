@@ -1,5 +1,5 @@
 <?php require_once("../controllers/userMyBoardsController.php"); ?>
-<!-- The userMyBoardsController will set session and object $user,  board objects array $boards, boardid with tacks objects array $boards_tacks -->
+<!-- The userMyBoardsController will set session and object $user,  board objects array $boards, boardid with tacks objects array  $boards_tacks, object array $categories-->
 <?php include("layouts/header.php"); ?>	
 <?php $activeMenu = "user_myboards"; include("layouts/menu.php"); ?>	
 	
@@ -12,7 +12,26 @@
 	<br />
 	
 	<h2>Your Boards: <?php echo htmlentities($user->first_name); ?></h2>
-	<h3><a href="user_create_board.php"> + Create New Board</a><h3><br></br>
+		
+		<form action="user_create_board.php" method= "LINK">
+		<p> + Create New Board :		
+		<button type ="submit">Create</button>		
+		</p>
+		</form>
+		
+		<form action="user_myboards.php" method = "post" >
+		<p> + Choose A Board :		
+		<select name="newtack_boardid" >
+		<?php
+			foreach($boards as $board) { 
+				echo "<option value ={$board->board_id}> {$board->name} </option>";
+		}?>
+		</select>
+		<input type="submit" name="newtacksubmit" value="Create New Tack"/>
+		</p>
+		</form>
+
+	
 	
 	
 	<?php
