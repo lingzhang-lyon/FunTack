@@ -78,8 +78,10 @@ id int NOT NULL AUTO_INCREMENT,
 board_id int NOT NULL,
 tack_id int NOT NULL,
 PRIMARY KEY (id),
-FOREIGN KEY (board_id) REFERENCES boards(board_id),
+FOREIGN KEY (board_id) REFERENCES boards(board_id)
+  ON DELETE CASCADE ON UPDATE CASCADE,
 FOREIGN KEY (tack_id) REFERENCES tacks(tack_id)
+  ON DELETE CASCADE ON UPDATE CASCADE
 );
 
 insert into board_tacks (board_id, tack_id) values (1,1);

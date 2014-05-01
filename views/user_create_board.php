@@ -22,9 +22,7 @@
 				echo "<option value ={$category->id}> {$category->category_name} </option>";
 		}?>
 		</select>
-		
-		
-		</p>
+        </p>
 		
 		<p>Description<br></br>
 		<input type="text" name="description" />

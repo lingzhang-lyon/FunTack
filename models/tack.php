@@ -141,7 +141,7 @@ class Tack {
 		$sql = "delete from tacks where ";	
 		$sql.= "user_id = {$userid} ";
 		if($tackid!=0){ 
-			$sql.= "tack_id = {$tackid} ";
+			$sql.= "and tack_id = {$tackid} ";
 	    }
 		if($safe_websiteurl!=""){
 			$sql.= "and website_url = '{$safe_websiteurl}' ";
@@ -153,8 +153,8 @@ class Tack {
 			$sql.= "and description = '{$safe_description}' ";
 		}	
 		$sql.= "limit 1 ";
-		$result_set =$database->query($sql);
-		return $result_set;		
+		$result =$database->query($sql);
+		return $result;		
 	}
 	
 	
@@ -169,6 +169,15 @@ class Tack {
 		$result_set =$database->query($sql);
 		return $result_set;			
 		
+	}
+	
+	public static function delete_tack_from_board($boardid=0,$tackid=0){
+		global $database;
+	    $sql  = "DELETE FROM board_tacks WHERE ";
+	    $sql  .= " board_id = {$boardid} ";
+	    $sql  .= "AND tack_id = {$tackid} ";
+		$result_set =$database->query($sql);
+		return $result_set;
 	}
 	
 	public static function create_tack_and_link_to_board (
