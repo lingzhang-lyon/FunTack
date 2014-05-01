@@ -4,10 +4,7 @@
   $user = User::find_by_id($_SESSION["user_id"]);
   $tack = Tack::find_by_id($_GET["tackid"]);
   $board = Board::find_by_id($_GET["boardid"]);
-  // echo $user->user_id;
-//   echo $tack->user_id;
-//   echo $tack->tack_id;
-  //BasicHelper::redirect_to("../views/user_myboards.php");
+
 ?>
 <?php
 if($tack->user_id==$user->user_id){ //if this tack created by the user originally

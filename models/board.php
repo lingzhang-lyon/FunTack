@@ -87,6 +87,32 @@ class Board {
 		
 	}
 	
+	public static function update_board($boardid=0,$boardname="",$categoryid=0,$description="",$boardtype=0) {
+		global $database;
+		$safe_boardname = $database->escape_value($boardname);
+		$safe_description= $database->escape_value($description);
+		$sql  = "UPDATE boards SET ";
+	    $sql  .= "name= '{$safe_boardname}', ";		
+	    $sql  .= "category_id= {$categoryid}, ";
+		$sql  .= "description= '{$safe_description}', ";
+		$sql  .= "privacy= {$boardtype} ";
+	    $sql .= "WHERE board_id = {$boardid} ";
+	    $sql .= "LIMIT 1";
+		$result_set =$database->query($sql);
+		return $result_set;	
+		
+	}
+	
+	public static function delete_board($userid=0,$boardid=0){
+		global $database;
+		$sql = "delete from boards where ";	
+		$sql.= "user_id = {$userid} ";
+		$sql.= "and board_id = {$boardid} ";
+		$result =$database->query($sql);
+		return $result;	
+	}
+	
+	
 	public static function find_boards_by_category_id($categoryid){
 		//will return board objects array
 		global $database;
@@ -95,9 +121,9 @@ class Board {
 		
 	}
 	
-	public static function find_recent_boards($number){
+	public static function find_recent_boards($number,$privacy){
 		//will return board objects array
-		return self::find_by_sql("select * from boards Order by created_date desc limit {$number} ");
+		return self::find_by_sql("select * from boards where privacy={$privacy} Order by created_date desc limit {$number} ");
 	}
 	
 }

@@ -21,7 +21,7 @@
 		<input type="submit" name="submit" value="Search"/>	
 	</p>
 	</form>
-	<h3> New Boards:</h3>	
+	<h3> New Public Boards:</h3>	
 	<?php
 	foreach($boards as $board){ ?>
 		<a href="user_board.php?id=<?php echo urlencode($board->board_id);?> ">

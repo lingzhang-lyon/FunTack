@@ -24,12 +24,23 @@ include("layouts/menu.php"); ?>
   
   <?php } ?>
   
-  <h3><?php echo $board->name; ?></h3>
+  <h3><?php echo $board->name?></h3>
+    <?php
+	if($board->privacy==0) $output="Type: Public<br>";
+	else $output="Type: Private<br>";
+	echo $output;
+    ?>
     Category: 
 	<?php 
 	$category = Category::find_by_id($board->category_id); 
-	echo  htmlentities($category->category_name); 
-	?><br>
+	$output = htmlentities($category->category_name)."<br>"; 
+    if($board->user_id == $_SESSION["user_id"]) { 
+	  $output.="<a href= \"user_edit_board.php?boardid=".urlencode($board->board_id)."\"> Edit </a>&nbsp; ";
+	  $output.="<a href= \"../controllers/userDeleteBoardController.php?boardid=".urlencode($board->board_id)."\" ";
+	  $output.="onclick=\"return confirm('Are you sure?');\"> Delete </a>"; 
+     }
+	echo $output;
+	?><br><br>
 	
 	
 	<table>
@@ -57,5 +68,4 @@ include("layouts/menu.php"); ?>
   
 </div>
 
-<?php include("layouts/footer.php"); ?>
-	  
+<?php include("layouts/footer.php"); ?>	  

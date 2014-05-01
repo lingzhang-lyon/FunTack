@@ -4,7 +4,7 @@
 	$user = User::find_by_id($_SESSION["user_id"]);
 	//$tacks = Tack::find_tacks_by_user_id($_SESSION["user_id"]); //return tack objects array
     $categories = Category::find_all(); 
-	$boards = Board::find_recent_boards(5);
+	$boards = Board::find_recent_boards(5,0);
 	?>
 <?php
 

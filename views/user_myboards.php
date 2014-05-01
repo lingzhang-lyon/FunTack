@@ -41,6 +41,11 @@
 		Category: <?php 
 		    $category = Category::find_by_id($board->category_id); 
 			echo  htmlentities($category->category_name); ?>
+		    <?php
+			if($board->privacy==0) $output="&nbsp;Type: Public";
+			else $output="&nbsp;Type: Private";
+			echo $output;
+		    ?>
 		<br></br>
 		<?php 
 		$ownboardid=$board->board_id;
