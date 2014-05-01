@@ -40,11 +40,15 @@ include("layouts/menu.php"); ?>
 	      <img src= <?php echo $tack->picture_url;?> width=200px height=200px/>
 	      <a href= <?php echo $tack->website_url;?> > <?php echo htmlentities($tack->description);?> </a><br>
 		  <a href= "user_retack.php?tackid=<?php echo urlencode($tack->tack_id);?>" > ReTack </a> &nbsp;
-		  <?php if($board->user_id == $_SESSION["user_id"]) { ?> 
-		  <a href= "user_edit_tack.php?tackid=<?php echo urlencode($tack->tack_id);?>" > Edit </a>&nbsp;
-		  <a href= "../controllers/userDeleteTackController.php?tackid=<?php
-		   echo urlencode($tack->tack_id);?>&boardid=<?php echo urlencode($board->board_id);?>" onclick="return confirm('Are you sure?');"> Delete </a>
-		  <?php } ?>
+		  <?php 
+		  if($board->user_id == $_SESSION["user_id"]) { 
+			  $output="<a href= \"user_edit_tack.php?tackid=".urlencode($tack->tack_id)."&boardid=".urlencode($board->board_id)."\"> Edit </a>&nbsp; ";
+			  $output.="<a href= \"../controllers/userDeleteTackController.php?tackid=".urlencode($tack->tack_id)."&boardid=".urlencode($board->board_id)."\" ";
+			  $output.="onclick=\"return confirm('Are you sure?');\"> Delete </a>";
+			  echo $output;
+		  }
+		  ?> 
+
 	   </td>
 		    
   <?php } ?>

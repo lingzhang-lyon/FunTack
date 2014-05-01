@@ -12,15 +12,15 @@
     <form action="user_create_tack.php?boardid=<?php echo urlencode($board->board_id);?>" method="post">
 
 		<p>Tack Website URL<br></br>
-		<input type="text" name="websiteurl"  />
+		<input type="text" name="websiteurl" style="width: 50em" />
 		</p>
 		
 		<p>Picture URL<br></br>
-		<input type="text" name="pictureurl"  />
+		<input type="text" name="pictureurl" style="width: 50em" />
 		</p>
 
 		<p>Description<br></br>
-		<input type="text" name="description" />
+		<input type="text" name="description" style="width: 50em"/>
 		</p>
 
 

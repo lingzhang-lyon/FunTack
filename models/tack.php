@@ -132,6 +132,22 @@ class Tack {
 		return $result_set;			
 	}
 	
+	public static function update_tack($tackid=0,$websiteurl="",$pictureurl="",$description="") {  
+		global $database;
+		$safe_websiteurl = $database->escape_value($websiteurl);
+		$safe_pictureurl = $database->escape_value($pictureurl);
+		$safe_description= $database->escape_value($description);
+	    
+		$sql  = "UPDATE tacks SET ";
+	    $sql  .= "website_url= '{$safe_websiteurl}', ";		
+	    $sql  .= "picture_url= '{$safe_pictureurl}', ";
+		$sql  .= "description= '{$safe_description}' ";
+	    $sql .= "WHERE tack_id = {$tackid} ";
+	    $sql .= "LIMIT 1";
+		$result_set =$database->query($sql);
+		return $result_set;			
+	}
+	
 	public static function delete_tack($userid=0,$tackid=0,$websiteurl="",$pictureurl="",$description="") { //test success
 		//must have user_id
 		global $database;
