@@ -108,3 +108,15 @@ PRIMARY KEY (id)
 
 insert into categories (name) values ("Beauty"), ("Food"),("Pet"), ("Technology"), ("Sports"),( "Travel"), ("Education"), ("Plants");
 	
+DROP TABLE IF EXISTS user_favorite_tacks;
+CREATE TABLE user_favorite_tacks (
+id int NOT NULL AUTO_INCREMENT,
+user_id int NOT NULL,
+tack_id int NOT NULL,
+PRIMARY KEY (id),
+FOREIGN KEY (tack_id) REFERENCES tacks(tack_id),
+FOREIGN KEY (user_id) REFERENCES users(user_id)
+);
+
+insert into user_favorite_tacks (user_id,tack_id) values (1,5),(1,6),(1,1);
+	

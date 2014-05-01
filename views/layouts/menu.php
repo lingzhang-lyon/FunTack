@@ -5,8 +5,6 @@
 	          <?php echo $_SESSION["first_name"]; ?> </a></li>
 		<li <?php if ($activeMenu == "user_dashboard") { ?> class="active"<?php } ?> >
 			<a href="user_dashboard.php">Home</a></li>	
-		<li <?php if ($activeMenu == "user_search") { ?> class="active"<?php } ?> >
-		    <a href="user_search.php">Search</a></li>
 		<li <?php if ($activeMenu == "user_myboards") { ?> class="active"<?php } ?> >
 			<a href="user_myboards.php">MyBoards</a></li>
 		<li <?php if ($activeMenu == "user_followed_boards") { ?> class="active"<?php } ?> >

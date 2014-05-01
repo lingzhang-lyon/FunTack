@@ -46,7 +46,6 @@ class Board {
 	
 	public static function find_by_id($id=0) { //test sucess
 		//will return board object
-		global $database;
 		$result_array = static::find_by_sql("select * from boards where board_id={$id} limit 1");
 		return $result_array[0] ;
 		
@@ -54,9 +53,7 @@ class Board {
 	
 	public static function find_boards_by_user_id($userid=0) {  //test sucess
 		//will return board objects array
-		global $database;
-		$result_array = static::find_by_sql("select * from boards where user_id = {$userid}");
-		return $result_array ;	
+		return static::find_by_sql("select * from boards where user_id = {$userid}");
 		
 	}
 	
@@ -88,6 +85,19 @@ class Board {
 		$result_set =$database->query($sql);
 		return $result_set;	
 		
+	}
+	
+	public static function find_boards_by_category_id($categoryid){
+		//will return board objects array
+		global $database;
+		$result_array= static::find_by_sql("select * from boards where category_id = {$categoryid}");
+		return $result_array ;
+		
+	}
+	
+	public static function find_recent_boards($number){
+		//will return board objects array
+		return self::find_by_sql("select * from boards Order by created_date desc limit {$number} ");
 	}
 	
 }
