@@ -72,15 +72,23 @@ class Board {
 		
 	}
 	
+	public static function find_followed_board($userid=0,$boardid=0) {  //test sucess
+		//will return board objects array
+		global $database;
+		$result= $database->query("select * from user_follow_boards where user_id = {$userid} and board_id = {$boardid} limit 1");
+		return $result;
+		
+	}
+	
 	public static function create_board($userid=0,$boardname="",$categoryid=0,$description="",$boardtype=0) {
 		global $database;
 		$safe_boardname = $database->escape_value($boardname);
 		$safe_description= $database->escape_value($description);
 		$time=$database->escape_value(date("Y-m-d"));
 	    $sql  = "INSERT INTO boards (";
-	    $sql  .= "  user_id, name, category_id, description,created_date ";
+	    $sql  .= "  user_id, name, category_id, description,created_date, privacy ";
 	    $sql  .= ") VALUES (";
-	    $sql  .= "  {$userid}, '{$safe_boardname}', {$categoryid},'{$safe_description}','{$time}' ";
+	    $sql  .= "  {$userid}, '{$safe_boardname}', {$categoryid},'{$safe_description}','{$time}',{$boardtype} ";
 	    $sql  .= ")";
 		$result_set =$database->query($sql);
 		return $result_set;	
@@ -108,6 +116,15 @@ class Board {
 		$sql = "delete from boards where ";	
 		$sql.= "user_id = {$userid} ";
 		$sql.= "and board_id = {$boardid} ";
+		$result =$database->query($sql);
+		return $result;	
+	}
+	
+	public static function add_board_followed($userid=0,$boardid=0){
+		global $database;
+		$sql = "insert into user_follow_boards (user_id, board_id ) values ";	
+		$sql.= "( {$userid}, ";
+		$sql.= "{$boardid} )";
 		$result =$database->query($sql);
 		return $result;	
 	}

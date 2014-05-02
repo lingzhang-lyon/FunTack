@@ -29,6 +29,7 @@
 		Category: <?php 
 		    $category = Category::find_by_id($board->category_id); 
 			echo  htmlentities($category->category_name); ?>
+			&nbsp;<a href= "../controllers/userAddBoardFollowedController.php?boardid=<?php echo urlencode($board->board_id);?>" > Follow this board</a> 
 		<br></br>
 		<?php 
 		$ownboardid=$board->board_id;

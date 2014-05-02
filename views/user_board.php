@@ -39,6 +39,7 @@ include("layouts/menu.php"); ?>
 	  $output.="<a href= \"../controllers/userDeleteBoardController.php?boardid=".urlencode($board->board_id)."\" ";
 	  $output.="onclick=\"return confirm('Are you sure?');\"> Delete </a>"; 
      }
+	 else $output .= "<a href= \"../controllers/userAddBoardFollowedController.php?boardid=".urlencode($board->board_id). " \" > Follow this board</a> ";
 	echo $output;
 	?><br><br>
 	
@@ -48,10 +49,10 @@ include("layouts/menu.php"); ?>
   <?php foreach($tacks as $tack){ ?>
 	     
 	   <td >  
-	      <img src= <?php echo $tack->picture_url;?> width=200px height=200px/>
+	      <img src= <?php echo $tack->picture_url;?> width=200px height=200px/><br>
 	      <a href= <?php echo $tack->website_url;?> > <?php echo htmlentities($tack->description);?> </a><br>
 		  <a href= "user_retack.php?tackid=<?php echo urlencode($tack->tack_id);?>" > ReTack </a> &nbsp;
-		  <a href= "user_add_tack_favorite.php?tackid=<?php echo urlencode($tack->tack_id);?>" > Favorite</a> &nbsp;
+		  <a href= "../controllers/userAddTackFavoriteController.php?tackid=<?php echo urlencode($tack->tack_id);?>" > Favorite</a> &nbsp;
 		  <?php 
 		  if($board->user_id == $_SESSION["user_id"]) { 
 			  $output="<a href= \"user_edit_tack.php?tackid=".urlencode($tack->tack_id)."&boardid=".urlencode($board->board_id)."\"> Edit </a>&nbsp; ";

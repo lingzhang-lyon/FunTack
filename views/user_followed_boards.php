@@ -10,13 +10,16 @@
 <?php
 if($followedboards){
 	foreach($followedboards as $board){ ?>
-		<a href="user_board.php?id=<?php echo urlencode($board->board_id);?> ">
+		<br><a href="user_board.php?id=<?php echo urlencode($board->board_id);?> ">
 		<?php echo $board->name; ?></a>
 	    Category: 
 		<?php 
 		$category = Category::find_by_id($board->category_id); 
 		echo  htmlentities($category->category_name); 
-		?>
+		$output ="&nbsp;<a href= \"../controllers/userDeleteBoardFromFollowedController.php?tackid=".urlencode($board->board_id)."\" ";
+		$output.="onclick=\"return confirm('Are you sure?');\"> Delete From Followed </a>";
+		echo $output;
+		?>		
 		<br>
 		<?php 
 		$ownboardid=$board->board_id;

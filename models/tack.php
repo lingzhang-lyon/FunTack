@@ -219,7 +219,7 @@ class Tack {
 		
 	}
 		
-	public static function find_favorite_tacks_by_user_id($userid){
+	public static function find_favorite_tacks_by_user_id($userid=0){
 		//will return tack objects array
 		global $database;
 		$sql="select * from tacks where tack_id in ";
@@ -229,6 +229,27 @@ class Tack {
 		
 		
 	}
+	
+	public static function find_favorite_tack($userid=0,$tackid=0){
+		
+		global $database;
+		$sql="select * from user_favorite_tacks where user_id = {$userid} and tack_id ={$tackid} limit 1 ";
+		$result = $database->query($sql);
+		return $result;	
+		
+		
+	}
+	
+	public static function add_tack_favorite($userid=0,$tackid=0){
+		global $database;
+		$sql = "insert into user_favorite_tacks (user_id, tack_id ) values ";	
+		$sql.= "( {$userid}, ";
+		$sql.= "{$tackid} )";
+		$result =$database->query($sql);
+		return $result;	
+	}
+	
+	
 		   
 	
 	
