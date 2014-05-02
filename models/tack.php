@@ -234,13 +234,15 @@ class Tack {
 		
 		global $database;
 		$sql="select * from user_favorite_tacks where user_id = {$userid} and tack_id ={$tackid} limit 1 ";
-		$result = $database->query($sql);
-		return $result;	
+		$result_set = $database->query($sql);
+		$result=$database->fetch_array($result_set);
+		return $result;
 		
 		
 	}
 	
 	public static function add_tack_favorite($userid=0,$tackid=0){
+		
 		global $database;
 		$sql = "insert into user_favorite_tacks (user_id, tack_id ) values ";	
 		$sql.= "( {$userid}, ";
@@ -249,6 +251,18 @@ class Tack {
 		return $result;	
 	}
 	
+	public static function delete_tack_from_favorite($userid=0,$tackid=0){
+		
+		global $database;
+		$sql = "delete from user_favorite_tacks where ";	
+		$sql.= "user_id = {$userid} ";
+		$sql.= "and tack_id = {$tackid} ";
+		$result =$database->query($sql);
+		return $result;
+	
+		
+	}
+		
 	
 		   
 	

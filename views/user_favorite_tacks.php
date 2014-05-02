@@ -20,7 +20,7 @@ if($favoritetacks){ ?>
 		  <a href= "user_retack.php?tackid=<?php echo urlencode($tack->tack_id);?>" > ReTack </a> &nbsp;
 		  <?php 
 		  
-			  $output ="<a href= \"../controllers/userDeleteTackFromFovariteController.php?tackid=".urlencode($tack->tack_id)."\" ";
+			  $output ="<a href= \"../controllers/userDeleteTackFromFavoriteController.php?tackid=".urlencode($tack->tack_id)."\" ";
 			  $output.="onclick=\"return confirm('Are you sure?');\"> Delete From Favorite </a>";
 			  echo $output;
 		  

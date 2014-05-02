@@ -75,7 +75,8 @@ class Board {
 	public static function find_followed_board($userid=0,$boardid=0) {  //test sucess
 		//will return board objects array
 		global $database;
-		$result= $database->query("select * from user_follow_boards where user_id = {$userid} and board_id = {$boardid} limit 1");
+		$result_set = $database->query("select * from user_follow_boards where user_id = {$userid} and board_id = {$boardid} limit 1");
+		$result=$database->fetch_array($result_set);
 		return $result;
 		
 	}
@@ -127,6 +128,16 @@ class Board {
 		$sql.= "{$boardid} )";
 		$result =$database->query($sql);
 		return $result;	
+	}
+	
+	public static function delete_board_from_followed($userid=0,$boardid=0){
+		global $database;
+		$sql = "delete from user_follow_boards where ";	
+		$sql.= "user_id = {$userid} ";
+		$sql.= "and board_id = {$boardid} ";
+		$result =$database->query($sql);
+		return $result;
+	
 	}
 	
 	

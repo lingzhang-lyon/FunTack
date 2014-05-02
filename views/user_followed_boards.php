@@ -16,7 +16,7 @@ if($followedboards){
 		<?php 
 		$category = Category::find_by_id($board->category_id); 
 		echo  htmlentities($category->category_name); 
-		$output ="&nbsp;<a href= \"../controllers/userDeleteBoardFromFollowedController.php?tackid=".urlencode($board->board_id)."\" ";
+		$output ="&nbsp;<a href= \"../controllers/userDeleteBoardFromFollowedController.php?boardid=".urlencode($board->board_id)."\" ";
 		$output.="onclick=\"return confirm('Are you sure?');\"> Delete From Followed </a>";
 		echo $output;
 		?>		
