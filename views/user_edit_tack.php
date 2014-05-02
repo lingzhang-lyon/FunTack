@@ -1,7 +1,7 @@
 <?php require_once("../controllers/userEditTackController.php"); ?>  
 <!-- The userEditTackController will set session and the object $user, $tack, $board -->
 <?php include("layouts/header.php"); ?>	
-<?php include("layouts/menu.php"); ?>
+<?php $activeMenu = "user_myboards"; include("layouts/menu.php"); ?>
 
 <div id="content">
 

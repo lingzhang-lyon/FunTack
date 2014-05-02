@@ -1,6 +1,6 @@
 <?php require_once("../helper/initializeHelper.php"); ?>
 <?php
-if (Session::logged_in()) BasicHelper::redirect_to("user_dashboard.php");
+//if (Session::logged_in()) BasicHelper::redirect_to("user_dashboard.php");
 if (isset($_POST['submit'])) {
   // Process the form
   
@@ -23,6 +23,8 @@ if (isset($_POST['submit'])) {
       // Success
 	  $user=User::find_by_email($email);
       $_SESSION["email_id"] = $user->email_id;
+	  $_SESSION["user_id"] = $user->user_id;
+	  $_SESSION["first_name"] = $user->first_name;
       BasicHelper::redirect_to("login.php");
     } else {
       // Failure

@@ -18,7 +18,7 @@
 		<button type ="submit">Create</button>		
 		</p>
 		</form>
-		
+		<?php if($boards) { ?>
 		<form action="user_myboards.php" method = "post" >
 		<p> + Choose A Board :		
 		<select name="newtack_boardid" >
@@ -30,11 +30,13 @@
 		<input type="submit" name="newtacksubmit" value="Create New Tack"/>
 		</p>
 		</form>
+		<?php } ?>
 
 	
 	
 	
 	<?php
+if($boards){
 	foreach($boards as $board){ ?>
 		<a href="user_board.php?id=<?php echo urlencode($board->board_id);?> ">
 		<?php echo $board->name; ?></a> 
@@ -55,7 +57,9 @@
 	   <?php } ?>
 	   <br> 
 	<?php 
-     } ?>
+     } 
+}	 
+	 ?>
 	
 	
 

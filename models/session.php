@@ -49,7 +49,7 @@ class Session {
 	}
 	
 	public static function logged_in() {
-			return isset($_SESSION['email_id']);
+			return isset($_SESSION['email_id']) && isset($_SESSION["user_id"]) && isset($_SESSION["first_name"]);
 		}
 
 	public static function confirm_logged_in() {

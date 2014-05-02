@@ -9,7 +9,7 @@ $tacks = Tack::find_tacks_by_board_id($_GET["id"]);
 if($board->user_id == $_SESSION["user_id"]){
 	$activeMenu = "user_myboards";
 } 
-//else $activeMenu = "user_followed_boards"; 
+else $activeMenu = ""; 
 include("layouts/menu.php"); ?>
 
 <div id="content">
@@ -51,6 +51,7 @@ include("layouts/menu.php"); ?>
 	      <img src= <?php echo $tack->picture_url;?> width=200px height=200px/>
 	      <a href= <?php echo $tack->website_url;?> > <?php echo htmlentities($tack->description);?> </a><br>
 		  <a href= "user_retack.php?tackid=<?php echo urlencode($tack->tack_id);?>" > ReTack </a> &nbsp;
+		  <a href= "user_add_tack_favorite.php?tackid=<?php echo urlencode($tack->tack_id);?>" > Favorite</a> &nbsp;
 		  <?php 
 		  if($board->user_id == $_SESSION["user_id"]) { 
 			  $output="<a href= \"user_edit_tack.php?tackid=".urlencode($tack->tack_id)."&boardid=".urlencode($board->board_id)."\"> Edit </a>&nbsp; ";

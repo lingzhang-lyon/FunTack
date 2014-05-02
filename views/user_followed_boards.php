@@ -1,5 +1,5 @@
 <?php require_once("../controllers/userFollowedBoardsController.php"); ?>
-<!-- The userFollowedBoardsController will set session and object $user,  board objects array $boards, boardid with tacks objects array $boards_tacks -->
+<!-- The userFollowedBoardsController will set session and object $user,  board objects array $followedboards, boardid with tacks objects array $boards_tacks -->
 <?php include("layouts/header.php"); ?>	
 <?php $activeMenu = "user_followed_boards"; include("layouts/menu.php"); ?>
 
@@ -7,7 +7,8 @@
   <?php echo Session::message(); ?>
   <?php echo Session::form_errors(Session::$errors); ?>
   
-	<?php
+<?php
+if($followedboards){
 	foreach($followedboards as $board){ ?>
 		<a href="user_board.php?id=<?php echo urlencode($board->board_id);?> ">
 		<?php echo $board->name; ?></a>
@@ -24,6 +25,7 @@
 	    <img src= <?php echo $owntack->picture_url;?> width=200px height=200px /> 
 	   <?php } 
 	}
+}
 	?>
   
 </div>

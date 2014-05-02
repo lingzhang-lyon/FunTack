@@ -51,6 +51,14 @@ insert into tacks (user_id, website_url, picture_url, description ) values
 (2, 'http://www.voila60sloan.com/beauty-blog/',
 	'http://www.voila60sloan.com/wp-content/uploads/2014/01/beauty1.jpg','Beauty blog');
 
+DROP TABLE IF EXISTS categories;
+CREATE TABLE categories (
+id int NOT NULL AUTO_INCREMENT,
+name varchar(100) NOT NULL,
+PRIMARY KEY (id)
+);
+
+insert into categories (name) values ("Beauty"), ("Food"),("Pet"), ("Technology"), ("Sports"),( "Travel"), ("Education"), ("Plants");
 
 DROP TABLE IF EXISTS boards;
 CREATE TABLE boards (
@@ -64,6 +72,8 @@ no_of_tacks int,
 privacy bit default 0,  -- 0, public, 1, private
 FOREIGN KEY (user_id) REFERENCES users (user_id)
     ON DELETE CASCADE ON UPDATE CASCADE,
+FOREIGN KEY (category_id) REFERENCES categories (id)
+	ON DELETE CASCADE ON UPDATE CASCADE,
 PRIMARY KEY (board_id)
 );
 
@@ -95,20 +105,15 @@ id int NOT NULL AUTO_INCREMENT,
 user_id int NOT NULL,
 board_id int NOT NULL,
 PRIMARY KEY (id),
-FOREIGN KEY (board_id) REFERENCES boards(board_id),
+FOREIGN KEY (board_id) REFERENCES boards(board_id)
+ON DELETE CASCADE ON UPDATE CASCADE,
 FOREIGN KEY (user_id) REFERENCES users(user_id)
+ON DELETE CASCADE ON UPDATE CASCADE
 );
 
 insert into user_follow_boards (user_id, board_id) values (2,1), (1,2);
 
-DROP TABLE IF EXISTS categories;
-CREATE TABLE categories (
-id int NOT NULL AUTO_INCREMENT,
-name varchar(100) NOT NULL,
-PRIMARY KEY (id)
-);
 
-insert into categories (name) values ("Beauty"), ("Food"),("Pet"), ("Technology"), ("Sports"),( "Travel"), ("Education"), ("Plants");
 	
 DROP TABLE IF EXISTS user_favorite_tacks;
 CREATE TABLE user_favorite_tacks (
@@ -116,8 +121,10 @@ id int NOT NULL AUTO_INCREMENT,
 user_id int NOT NULL,
 tack_id int NOT NULL,
 PRIMARY KEY (id),
-FOREIGN KEY (tack_id) REFERENCES tacks(tack_id),
+FOREIGN KEY (tack_id) REFERENCES tacks(tack_id)
+ON DELETE CASCADE ON UPDATE CASCADE,
 FOREIGN KEY (user_id) REFERENCES users(user_id)
+ON DELETE CASCADE ON UPDATE CASCADE
 );
 
 insert into user_favorite_tacks (user_id,tack_id) values (1,5),(1,6),(1,1);

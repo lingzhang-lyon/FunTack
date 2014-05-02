@@ -7,7 +7,7 @@
     <?php echo Session::message(); ?>
     <?php echo Session::form_errors(Session::$errors); ?>
 	
-    <h2>Your Profile: <?php echo htmlentities($user->name); ?></h2>
+    <h2>Your Profile: <?php echo htmlentities($user->first_name); ?></h2>
     
 
 		<p>First Name<br></br>

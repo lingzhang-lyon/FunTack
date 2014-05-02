@@ -1,7 +1,7 @@
 <?php require_once("../controllers/userRetackController.php"); ?>
 <!-- The userRetackController will set session and the object $user, $tack, object array $boards -->
 <?php include("layouts/header.php"); ?>	
-<?php include("layouts/menu.php"); ?>
+<?php $activeMenu = ""; include("layouts/menu.php"); ?>
 
 <div id="content">
   <?php echo Session::message(); ?>

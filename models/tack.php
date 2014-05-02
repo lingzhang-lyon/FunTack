@@ -219,7 +219,16 @@ class Tack {
 		
 	}
 		
+	public static function find_favorite_tacks_by_user_id($userid){
+		//will return tack objects array
+		global $database;
+		$sql="select * from tacks where tack_id in ";
+		$sql .= "(select tack_id from user_favorite_tacks where user_id = {$userid} )";
+		$result_array = static::find_by_sql($sql);
+		return $result_array ;	
 		
+		
+	}
 		   
 	
 	
