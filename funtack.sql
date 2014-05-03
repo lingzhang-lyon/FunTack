@@ -38,18 +38,24 @@ PRIMARY KEY (tack_id)
 );
 
 insert into tacks (user_id, website_url, picture_url, description ) values
-(1, 'http://1hdwallpapers.com/future_technology-wallpaper.html', 
-	'http://1hdwallpapers.com/wallpapers/future_technology.jpg', 'A great wall paper website'),
-(1,'http://www.technews24h.com/2013/10/where-is-technology-heading.html',
-	'http://2.bp.blogspot.com/-iLHXJHBe1J0/UlvTybIPo7I/AAAAAAAASXo/yEgUK_8xxJY/s1600/Where+Is+Technology+Heading.jpg', 'Where is technology heading?'),
-(1, 'http://www.cautaro.com/how-to-pick-right-bedroom-wardrobe-design.html',
-	'http://www.cautaro.com/wp-content/uploads/2014/03/modern-bedroom-design.jpg','how to pick right bedroom design'),
-(1, 'https://scifiinterfaces.wordpress.com/tag/inhumantechnology/',
-	'https://scifiinterfaces.files.wordpress.com/2012/11/prometheus-223.png','Alien VPs'),
-(2, 'http://jeffbeckley.wordpress.com/tag/sleep-texting/', 
-	'http://jeffbeckley.files.wordpress.com/2014/04/social_media-technology-wallpapers.jpg','Sleep Texting'),
-(2, 'http://www.voila60sloan.com/beauty-blog/',
-	'http://www.voila60sloan.com/wp-content/uploads/2014/01/beauty1.jpg','Beauty blog');
+(1, 'http://iliketowastemytime.com/', 
+	'http://iliketowastemytime.com/sites/default/files/imagecache/blog_image/space-map-hd-wallpaper_1.jpg', 'A great wall paper website'),
+(1,'https://login.touricoholidays.com/',
+	'https://login.touricoholidays.com/wp-content/uploads/2012/10/technologyContact.jpg', 'Where is technology heading?'),
+(1, 'http://freshome.com/',
+	'http://cdn.freshome.com/wp-content/uploads/2009/08/Girls-Bedroom-Design-Ideas-by-Pm4-3.jpg','how to pick right bedroom design'),
+(1, 'http://www.asianfortunenews.com/category/travel/',
+	'http://www.asianfortunenews.com/wp-content/uploads/2014/01/126.jpg','Looking to plan a trip for your vacation?'),
+(2, 'http://www.10tv.com/content/stories/2011/11/07/columbus-texting-while-sleeping.html', 
+	'http://www.10tv.com/content/graphics/2011/11/07/image_sleep_texting.png','Sleep Texting'),
+(2, 'http://www.escentual.com/blog/2012/12/07/binky-felsteads-beauty-blog-camera-perfect/',
+	'http://www.escentual.com/blog/wp-content/uploads/2012/12/Party-Perfect.png','Beauty blog');
+(3, 'http://www.wikihow.com/Learn-to-Play-Electric-Guitar',
+	'http://www.wikihow.com/images/2/2b/Learn-to-Play-Electric-Guitar-Step-3.jpg','Learn how to play electric guitar');
+(3, 'http://www.saveasaurus.com/healthy-easy-recipes/',
+	'http://files.recipetips.com/images/recipe/bread/big/cream_cheese_banana_muffins_big.jpg','Feel like learning a new dish?');
+(3, 'http://www.jackspets.com/Pet-Care-Information.aspx',
+	'http://www.jackspets.com/Images/Pet-Care-Information/Pet-Care-Information.png','Pets quick faqs');
 
 DROP TABLE IF EXISTS categories;
 CREATE TABLE categories (

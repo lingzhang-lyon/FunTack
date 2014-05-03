@@ -8,28 +8,34 @@
     <?php echo Session::message(); ?>
     <?php echo Session::form_errors(Session::$errors); ?>
     
-    <h2><?php echo htmlentities($user->first_name); ?> :Edit Your Tack </h2>
-    <form action="user_edit_tack.php?tackid=<?php echo urlencode($tack->tack_id);?>&boardid=<?php echo urlencode($board->board_id);?>" method="post">
+    <div class="panel panel-warning" > 
+	<div class="panel-heading"><h3><?php echo htmlentities($user->first_name); ?> :Edit Your Tack </h3></div>
+	<div class="panel-body">
+		<form action="user_edit_tack.php?tackid=<?php echo urlencode($tack->tack_id);?>&boardid=<?php echo urlencode($board->board_id);?>" method="post" class="form-horizontal" role="form">
+			<div class="form-group">
+				<label for="WebsiteURL" class="col-sm-2 control-label">Tack Website URL</label>
+				<div class="col-sm-10">
+					<input type="text" name="websiteurl" class="form-control" value="<?php echo htmlentities($tack->website_url); ?>" placeholder="Website URL">
+				</div>
+			</div>
+			<div class="form-group">
+				<label for="WebsiteURL" class="col-sm-2 control-label">Picture URL</label>
+				<div class="col-sm-10">
+					<input type="text" name="pictureurl" class="form-control" value="<?php echo htmlentities($tack->picture_url); ?>" placeholder="picture URL">
+				</div>
+			</div>
+			<div class="form-group">
+				<label for="Description" class="col-sm-2 control-label">Description</label>
+				<div class="col-sm-10">
+					<input type="text" name="description" class="form-control" value="<?php echo htmlentities($tack->description); ?>" placeholder="Description">
+				</div>
+			</div>
 
-		<p>Tack Website URL<br></br>
-		<input type="text" name="websiteurl" value="<?php echo htmlentities($tack->website_url); ?>" style="width: 50em"/>
-		</p>
-		
-		<p>Picture URL<br></br>
-		<input type="text" name="pictureurl" value="<?php echo htmlentities($tack->picture_url); ?>" style="width: 50em" />
-		</p>
-
-		<p>Description<br></br>
-		<input type="text" name="description" value="<?php echo htmlentities($tack->description); ?>"style="width: 50em"/>
-		</p>
-
-
-		<input type="submit" name="submit" value="Edit"/>
-		<a href="user_board.php?id=<?php echo urlencode($board->board_id);?>">Cancel</a>
-		
-
-		 
-    </form>
+			<input type="submit" name="submit" value="Edit" class="btn btn-primary"/>
+			<a class="btn btn-danger " href="user_board.php?id=<?php echo urlencode($board->board_id);?>">Cancel</a>
+		</form>
+		</div>
+	</div>
 
 </div>
 

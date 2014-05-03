@@ -4,20 +4,14 @@
 <html lang="en">
 <head>
 		<title>FunTack </title>
-		<!-- <link href="../css/nova_public.css"  rel="stylesheet" type="text/css" /> -->
-		<link href="../css/main.css"  rel="stylesheet" type="text/css" />
-		<link href="../css/screen.css"  rel="stylesheet" type="text/css" />
-		<!-- <link href="../css/print.css"  rel="stylesheet" type="text/css" /> -->
-		<link href="../css/form.css"  rel="stylesheet" type="text/css" />
+
+		 <link rel="stylesheet" href="//netdna.bootstrapcdn.com/bootstrap/3.1.1/css/bootstrap.min.css">
+    <!-- Optional theme -->
+    <link rel="stylesheet" href="//netdna.bootstrapcdn.com/bootstrap/3.1.1/css/bootstrap-theme.min.css">
 		
 </head>
 		
-<body>
-
+<body style="background:url(../images/background.jpg);">
 <div class="container" id="page">
+	<div class="jumbotron">
 			
-    <div id="header">
-      
-     <h1> &nbsp;&nbsp;FunTack </h1>
-      
-    </div>

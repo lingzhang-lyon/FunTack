@@ -3,14 +3,17 @@
 <?php include("layouts/header.php"); ?>	
 <?php $activeMenu = "user_followed_boards"; include("layouts/menu.php"); ?>
 
-<div id="content">
+<div id="content"  style="margin-top:15px;">
   <?php echo Session::message(); ?>
   <?php echo Session::form_errors(Session::$errors); ?>
   
+	<?php $i=1;?>
 <?php
 if($followedboards){
 	foreach($followedboards as $board){ ?>
-		<br><a href="user_board.php?id=<?php echo urlencode($board->board_id);?> ">
+	<div class="panel panel-warning"> 
+		<div class="panel-heading">
+		<a href="user_board.php?id=<?php echo urlencode($board->board_id);?> ">
 		<?php echo $board->name; ?></a>
 	    Category: 
 		<?php 
@@ -20,16 +23,62 @@ if($followedboards){
 		$output.="onclick=\"return confirm('Are you sure?');\"> Delete From Followed </a>";
 		echo $output;
 		?>		
-		<br>
+		</div>
+		<div class="panel-body">
+		<div class="row row-offcanvas row-offcanvas-right" style="margin-left:10px;margin-right:10px;">
 		<?php 
 		$ownboardid=$board->board_id;
 		$owntacks=$boardid_tacks[$ownboardid];
 		foreach($owntacks as $owntack){ ?>
-	    <img src= <?php echo $owntack->picture_url;?> width=200px height=200px /> 
-	   <?php } 
-	}
-}
-	?>
+	    <?php if ($i%4===1){?>	
+		<div class="col-xs-4 col-sm-3 sidebar-offcanvas panel panel-default" id="Div2" role="navigation" style="height:250px;background:rgba(255,248,168,0.4);">
+			<div class="thumbnail" style="margin-top: 10px;"><a href="<?php echo $owntack->website_url?>">
+			  <img src=<?php echo $owntack->picture_url;?> class="img-responsive img-rounded"></a>
+			  <div class="caption">
+				<?php echo $owntack->description;?>
+			  </div>
+			</div> 
+		</div>
+		<?php } ?>
+		<?php if ($i%4===2){?>	
+		<div class="col-xs-4 col-sm-3 sidebar-offcanvas panel panel-default" id="Div2" role="navigation" style="height:250px;background:rgba(255,248,168,0.4);">
+			<div class="thumbnail" style="margin-top: 10px;"><a href="<?php echo $owntack->website_url?>">
+			  <img src=<?php echo $owntack->picture_url;?> class="img-responsive img-rounded"></a>
+			  <div class="caption">
+				<?php echo $owntack->description;?>
+			  </div>
+			</div> 
+		</div>
+		<?php } ?>
+		<?php if ($i%4===3){?>	
+		<div class="col-xs-4 col-sm-3 sidebar-offcanvas panel panel-default" id="Div2" role="navigation" style="height:250px;background:rgba(255,248,168,0.4);">
+			<div class="thumbnail" style="margin-top: 10px;"><a href="<?php echo $owntack->website_url?>">
+			  <img src=<?php echo $owntack->picture_url;?> class="img-responsive img-rounded"></a>
+			  <div class="caption">
+				<?php echo $owntack->description;?>
+			  </div>
+			</div> 
+		</div>
+		<?php } ?>
+		 <?php if ($i%4===0){?>	
+		<div class="col-xs-4 col-sm-3 sidebar-offcanvas panel panel-default" id="Div2" role="navigation" style="height:250px;background:rgba(255,248,168,0.4);">
+			<div class="thumbnail" style="margin-top: 10px;"><a href="<?php echo $owntack->website_url?>">
+			  <img src=<?php echo $owntack->picture_url;?> class="img-responsive img-rounded"></a>
+			  <div class="caption">
+				<?php echo $owntack->description;?>
+			  </div>
+			</div> 
+		</div>
+		<?php } ?>
+	   <?php $i++;} ?>
+	   </div> <!--/row thumbnail-->
+	   </div> <!--/panel-body-->
+	</div> <!--/panel-->
+	   <br> 
+	<?php 
+     } 
+}	 
+	 ?>
   
 </div>
 
