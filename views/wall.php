@@ -18,7 +18,7 @@
 
 <?php require_once("../controllers/userDashboardController.php"); ?>
 <!-- The userDashboardController will set session and object $user,  tack objects array $tacks -->
-<?php $activeMenu = "user_dashboard"; include("layouts/menu.php"); ?>	
+<?php $activeMenu = "wall"; include("layouts/menu.php"); ?>	
 
 <div id="content">
   <?php echo Session::message(); ?>
@@ -29,7 +29,7 @@
 <!-- Single button -->
 
 	
-	<form action="user_dashboard2.php" method="post" style="margin-bottom:15px">
+	<form action="wall.php" method="post" style="margin-bottom:15px">
 		<div class="input-group">
 		  <span class="input-group-addon">Search By Category: </span>
 		  <select class="form-control" name="categoryid" >
