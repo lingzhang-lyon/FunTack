@@ -7,7 +7,7 @@
             <span class="icon-bar"></span>
             <span class="icon-bar"></span>
           </button>
-          <a class="navbar-brand" href="#">FunTack</a>
+          <a class="navbar-brand" href="index.php">FunTack</a>
         </div>
         <div class="collapse navbar-collapse">
           <ul class="nav navbar-nav">
@@ -16,6 +16,7 @@
 			<li<?php if ($activeMenu == "user_myboards") { ?> class="active"<?php } ?> ><a href="user_myboards.php">MyBoards</a></li>
 			<li<?php if ($activeMenu == "user_followed_boards") { ?> class="active"<?php } ?> ><a href="user_followed_boards.php">Followed Boards</a></li>
 			<li<?php if ($activeMenu == "user_favorite_tacks") { ?> class="active"<?php } ?> ><a href="user_favorite_tacks.php">Favorite Tacks</a></li>
+			<li<?php if ($activeMenu == "wall") { ?> class="active"<?php } ?> ><a href="wall.php">Wall</a></li>
 			<li><a href="../controllers/logoutController.php">Log Out</a></li>
           </ul>
         </div><!--/.nav-collapse -->
