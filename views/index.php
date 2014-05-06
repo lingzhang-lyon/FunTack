@@ -86,7 +86,7 @@
 			<div class="formFooter">
 				<p class="compactViewLogin" style="font-size:20px;color:rgb(255,150,13);">
 				Need to Signup?
-				<a href="../~lingzhang/@Funtack_project/FunTack/views/register.php" class="emailLogin">Register Here</a>
+				<a href="../funTack/views/register.php" class="emailLogin">Register Here</a>
 				</p>
 		</form>
 	<div>
@@ -94,7 +94,7 @@
 			<div class="formFooter">
 				<p class="compactViewLogin" style="font-size:20px;color:rgb(255,150,13);">
 					Already have an account?
-					<a href="../~lingzhang/@Funtack_project/FunTack/views/login.php" class="emailLogin" >Log in now</a>
+					<a href="../funTack/views/login.php" class="emailLogin" >Log in now</a>
 				</p>
 			</div>
 		</form>
