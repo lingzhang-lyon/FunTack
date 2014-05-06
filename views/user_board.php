@@ -18,7 +18,9 @@ include("layouts/menu.php"); ?>
   
   <?php if($board->user_id == $_SESSION["user_id"]) { ?> 
   <!-- if this board own by the user, then allow to create new tack -->
-
+	<h4>+ Create New Tack In This Board 
+		<a class="btn btn-primary " href="user_create_tack.php?boardid=<?php echo urlencode($board->board_id);?> "> Create</a> 
+		</h4><br>
   
   <br></br>
   
@@ -45,9 +47,7 @@ include("layouts/menu.php"); ?>
 		?>
 		</div>
 		<div class="panel-body">
-		<h4>+ Create New Tack In This Board 
-		<a class="btn btn-primary " href="user_create_tack.php?boardid=<?php echo urlencode($board->board_id);?> "> Create</a> 
-		</h4><br>
+		
 		<div class="row row-offcanvas row-offcanvas-right" style="margin-left:10px;margin-right:10px;">
   <?php $i=1;?>
   <?php foreach($tacks as $tack){ ?>
