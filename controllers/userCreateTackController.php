@@ -1,4 +1,7 @@
-<?php require_once("../helper/initializeHelper.php"); ?>
+<?php
+//This userCreateTackController is to handle the post request from user_create_board.php
+
+require_once("../helper/initializeHelper.php"); ?>
 <?php Session::confirm_logged_in(); ?>
 <?php 
   $user = User::find_by_id($_SESSION["user_id"]);
@@ -18,7 +21,8 @@ if (isset($_POST['submit'])) {
     
  
     $result = 
- 		Tack::create_tack_and_link_to_board($_SESSION["user_id"],$_GET["boardid"],$_POST["websiteurl"], $_POST["pictureurl"],$_POST["description"]);
+ 		Tack::create_tack_and_link_to_board($_SESSION["user_id"],$_GET["boardid"],$_POST["websiteurl"],
+                                             $_POST["pictureurl"],$_POST["description"]);
        
  
     if ($result) {

@@ -2,7 +2,8 @@
 	require_once("database.php");
 	
 class Tack {
-	
+	//this class store the data about tack, and the functions for access and manipulate tack data
+
 	public $tack_id;
 	public $user_id;
 	public $website_url;

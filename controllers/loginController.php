@@ -1,4 +1,8 @@
-<?php require_once("../helper/initializeHelper.php"); ?>
+<?php
+//This loginController is to handle the post request from user_login.php and try to login
+//if login successfully, $_SESSION will be set.
+
+require_once("../helper/initializeHelper.php"); ?>
 <?php
 if (Session::logged_in()) BasicHelper::redirect_to("user_dashboard.php");
 $email ="";		

@@ -23,6 +23,7 @@ insert into users (first_name,last_name,email_id,password, admin_authority) valu
 ('lingran', 'liu','lingran@gmail.com','1234', 0);
 
 
+
 DROP TABLE IF EXISTS tacks;
 CREATE TABLE tacks (
 tack_id int NOT NULL AUTO_INCREMENT,
@@ -49,13 +50,16 @@ insert into tacks (user_id, website_url, picture_url, description ) values
 (2, 'http://www.10tv.com/content/stories/2011/11/07/columbus-texting-while-sleeping.html', 
 	'http://www.10tv.com/content/graphics/2011/11/07/image_sleep_texting.png','Sleep Texting'),
 (2, 'http://www.escentual.com/blog/2012/12/07/binky-felsteads-beauty-blog-camera-perfect/',
-	'http://www.escentual.com/blog/wp-content/uploads/2012/12/Party-Perfect.png','Beauty blog');
+	'http://www.escentual.com/blog/wp-content/uploads/2012/12/Party-Perfect.png','Beauty blog'),
 (3, 'http://www.wikihow.com/Learn-to-Play-Electric-Guitar',
-	'http://www.wikihow.com/images/2/2b/Learn-to-Play-Electric-Guitar-Step-3.jpg','Learn how to play electric guitar');
+	'http://www.wikihow.com/images/2/2b/Learn-to-Play-Electric-Guitar-Step-3.jpg','Learn how to play electric guitar'),
 (3, 'http://www.saveasaurus.com/healthy-easy-recipes/',
-	'http://files.recipetips.com/images/recipe/bread/big/cream_cheese_banana_muffins_big.jpg','Feel like learning a new dish?');
+	'http://files.recipetips.com/images/recipe/bread/big/cream_cheese_banana_muffins_big.jpg','Feel like learning a new dish?'),
 (3, 'http://www.jackspets.com/Pet-Care-Information.aspx',
 	'http://www.jackspets.com/Images/Pet-Care-Information/Pet-Care-Information.png','Pets quick faqs');
+
+	
+	
 
 DROP TABLE IF EXISTS categories;
 CREATE TABLE categories (
@@ -64,7 +68,7 @@ name varchar(100) NOT NULL,
 PRIMARY KEY (id)
 );
 
-insert into categories (name) values ("Beauty"), ("Food"),("Pet"), ("Technology"), ("Sports"),( "Travel"), ("Education"), ("Plants");
+insert into categories (id,name) values (1,"Beauty"), (2,"Food"),(3,"Pet"), (4,"Technology"), (5,"Sports"),( 6,"Travel"), (7,"Education"), (8,"Plants");
 
 DROP TABLE IF EXISTS boards;
 CREATE TABLE boards (

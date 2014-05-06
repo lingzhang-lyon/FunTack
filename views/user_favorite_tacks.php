@@ -1,4 +1,5 @@
 <?php require_once("../controllers/userFavoriteTacksController.php"); ?>
+<!--This View is for add tack to user favorite tacks list -->
 <!-- The userFavoriteTacksController will set session and object $user,   objects array $favoritetacks -->
 <?php include("layouts/header.php"); ?>	
 <?php $activeMenu = "user_favorite_tacks"; include("layouts/menu.php"); ?>

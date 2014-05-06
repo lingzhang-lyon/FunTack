@@ -1,4 +1,5 @@
-<?php require_once("../controllers/userCreateTackController.php"); ?>  
+<?php require_once("../controllers/userCreateTackController.php"); ?>
+<!--This is the view for user_create_tack -->
 <!-- The userCreateBoardController will set session and the object $user -->
 <?php include("layouts/header.php"); ?>	
 <?php $activeMenu = ""; include("layouts/menu.php"); ?>

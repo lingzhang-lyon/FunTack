@@ -1,4 +1,5 @@
-<?php require_once("../controllers/userEditTackController.php"); ?>  
+<?php require_once("../controllers/userEditTackController.php"); ?>
+<!--This view is for user edit tack information -->
 <!-- The userEditTackController will set session and the object $user, $tack, $board -->
 <?php include("layouts/header.php"); ?>	
 <?php $activeMenu = "user_myboards"; include("layouts/menu.php"); ?>
